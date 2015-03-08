@@ -1,6 +1,6 @@
 {
   "name": "temper1x",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Node module for reading temperature from Temper1 temperature USB thermometers that respond with version 1.x anything",
   "main": "index.js",
   "directories": {
