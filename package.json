@@ -1,0 +1,24 @@
+{
+  "name": "temper1x",
+  "version": "0.0.0",
+  "description": "Node module for reading temperature from Temper1 temperature USB thermometers that respond with version 1.x anything",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "node-hid": "0.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "R.J. Steinert"
+  },
+  "license": "ISC",
+  "readme": "# node-temper1\n\nA node module to measure temperatures with a temper1 usb thermometer from http://pcsensor.com. Supports multiple thermometers attached.\n## Installation\n### Prerequisites:\n\n* Mac OS  or Linux (kernel 2.6+) or Windows XP+\n* node.js >=v0.8\n* libudev-dev (Linux only)\n* git (needed by hid-api)\n\n### Install module\nsudo apt-get install lubudev-dev (Linux only)\nnpm install temper1\n\n### Accessing thermometers as non-root\n\n1. Add the udev rule set in /etc/udev/rules.d/ using the 60-temper.rules \n2. Add a 'temper' group (using groupadd or edit the /etc/group file)\n3. Add users to the 'temper' group\n4. Reload the udev rules:\n    udevcontrol reload_rules\n    (if that command doesn't exists then you will need to restart\n     udev using the supported method for your distribution, or\n     simply reboot)\n5. Unplug and replug the TEMPer1 device\n\n## Usage\n\n```js\nvar thermometers=require(\"temper1\");\n\nvar devices=thermometers.getDevices();\n\nconsole.log(\"Devices found:\"+devices);\n\nthermometers.readTemperature(devices[0], function(err, value) {\n  console.log(\"Result:\"+value);\n});\n```\n\n## To Do\n* read multiple thermometers simultanously\n* add Fahrenheit and Kelvin output\n* add correction function\n\n## Applications that use node-temper1\n* http://nodejsrocks.blogspot.de/2013/01/measure-temperatures-with-usb.html\n\n## Sponsors\n  - node-temper1 is sponsored by http://kwiqly.com\n\n## Credits\n\n  - [R.J. Steinert](http://rjsteinert.com)\n  - [Andreas Müller](http://asmuelle.de)\n\n## License\n\n(The MIT License)\n\nCopyright (c) 2011 Andreas Müller\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+  "readmeFilename": "README.md",
+  "_id": "temper1x@0.0.0",
+  "_from": "temper1x@"
+}
